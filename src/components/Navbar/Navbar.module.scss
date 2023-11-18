@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  background: #170641;
+  padding: 20px;
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+
+  a:hover {
+    color: #e5f6ff;
+  }
+
+  &__logo {
+    margin-right: auto;
+  }
+
+  &__links {
+    display: flex;
+
+    a {
+      margin: 10px;
+    }
+  }
+}
