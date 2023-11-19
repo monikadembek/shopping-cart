@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import Cart from "./components/Cart/Cart";
 import CartContextProvider from "./providers/cart-context-provider";
+import ProductDetails from "./components/Products/ProductDetails/ProductDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Products />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>
