@@ -3,6 +3,7 @@ import {
   PropsWithChildren,
   SetStateAction,
   createContext,
+  useMemo,
   useState,
 } from "react";
 import { Product } from "../components/Products/Products.model";
@@ -18,6 +19,7 @@ export type Cart = {
 export type CartContextType = {
   cart: Cart[];
   addToCart: (product: Product) => void;
+  updateProductQuantity: (id: number, quantity: number) => void;
 };
 
 export const CartContext = createContext<CartContextType | null>(null);
@@ -52,10 +54,29 @@ function CartContextProvider({ children }: PropsWithChildren) {
     setCart(nextCart);
   };
 
-  const value: CartContextType = {
-    cart,
-    addToCart,
+  const updateProductQuantity = (id: number, quantity: number) => {
+    let nextCart: Cart[] = [...cart];
+
+    if (quantity === 0) {
+      nextCart = nextCart.filter((item: Cart) => item.id !== id);
+    }
+
+    nextCart.forEach((item: Cart) => {
+      if (item.id === id) {
+        item.quantity = quantity;
+      }
+    });
+
+    setCart(nextCart);
   };
+
+  const value: CartContextType = useMemo(() => {
+    return {
+      cart,
+      addToCart,
+      updateProductQuantity,
+    };
+  }, [cart]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
