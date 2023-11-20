@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./ProductTile.module.scss";
+import { StyledProductTile, Tag, Button } from "./ProductTile.style";
 import {
   CartContext,
   CartContextType,
@@ -30,27 +30,19 @@ function ProductTile({ product }: ProductTileProps) {
   };
 
   return (
-    <div
-      className={styles.product}
-      onClick={() => goToProductDetails(product.id)}
-    >
+    <StyledProductTile onClick={() => goToProductDetails(product.id)}>
       <header>
-        <span className={styles.tag}>{product.category}</span>
+        <Tag>{product.category}</Tag>
         <h3>{product.title}</h3>
       </header>
-      <div className={styles.product__content}>
+      <div className="content">
         <img src={product.image} alt="product image" />
       </div>
-      <footer className={styles.product__footer}>
-        <h4 className={styles.product__price}>${product.price}</h4>
-        <button
-          className={styles.cartBtn}
-          onClick={(e) => handleBtnClick(e, product)}
-        >
-          Add to cart
-        </button>
+      <footer className="footer">
+        <h4 className="price">${product.price}</h4>
+        <Button onClick={(e) => handleBtnClick(e, product)}>Add to cart</Button>
       </footer>
-    </div>
+    </StyledProductTile>
   );
 }
 

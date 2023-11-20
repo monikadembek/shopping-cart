@@ -1,4 +1,6 @@
-.product {
+import styled from "styled-components";
+
+export const StyledProductTile = styled.div`
   width: 400px;
   height: auto;
   display: block;
@@ -27,29 +29,17 @@
     margin-bottom: 20px;
     padding: 15px;
 
-    .tag {
-      background-color: #aecaff;
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 14px;
-      font-weight: bold;
-      align-self: flex-end;
-      margin-top: -17px;
-      margin-right: -17px;
-      color: #170641;
-    }
-
     h3 {
       margin: 10px auto;
       color: #170641;
     }
   }
 
-  &__content {
+  .content {
     padding: 20px;
   }
 
-  &__footer {
+  .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,13 +47,25 @@
     background-color: #aecaff;
   }
 
-  &__price {
+  .price {
     color: #170641;
     font-size: 20px;
   }
-}
+`;
 
-.cartBtn {
+export const Tag = styled.span`
+  background-color: #aecaff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-top: -17px;
+  margin-right: -17px;
+  color: #170641;
+`;
+
+export const Button = styled.button`
   background-color: #170641;
   color: #fff;
   text-align: center;
@@ -76,4 +78,4 @@
   &:hover {
     background-color: #230966;
   }
-}
+`;
