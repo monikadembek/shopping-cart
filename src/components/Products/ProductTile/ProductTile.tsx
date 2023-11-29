@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { StyledProductTile, Tag, Button } from "./ProductTile.style";
+import { StyledProductTile, Tag } from "./ProductTile.style";
 import {
   CartContext,
   CartContextType,
 } from "../../../providers/cart-context-provider";
 import { Product } from "../Products.model";
+import Button from "../../Button/Button";
 
 type ProductTileProps = {
   product: Product;
@@ -40,7 +41,9 @@ function ProductTile({ product }: ProductTileProps) {
       </div>
       <footer className="footer">
         <h4 className="price">${product.price}</h4>
-        <Button onClick={(e) => handleBtnClick(e, product)}>Add to cart</Button>
+        <Button type="outlined" handleClick={(e) => handleBtnClick(e, product)}>
+          Add to cart
+        </Button>
       </footer>
     </StyledProductTile>
   );

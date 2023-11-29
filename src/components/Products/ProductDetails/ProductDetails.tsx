@@ -3,13 +3,9 @@ import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import fetcher from "../../../helpers/fetcher";
 import { Loader } from "react-feather";
-import {
-  LoaderContainer,
-  StyledProduct,
-  Tag,
-  Button,
-} from "./ProductDetails.styles";
+import { LoaderContainer, StyledProduct, Tag } from "./ProductDetails.styles";
 import { Product } from "../Products.model";
+import Button from "../../Button/Button";
 import {
   CartContext,
   CartContextType,
@@ -52,7 +48,7 @@ function ProductDetails() {
       </div>
       <footer className="footer">
         <h4 className="price">${product.price}</h4>
-        <Button onClick={() => addToCart(product)}>Add to cart</Button>
+        <Button handleClick={() => addToCart(product)}>Add to cart</Button>
       </footer>
     </StyledProduct>
   );

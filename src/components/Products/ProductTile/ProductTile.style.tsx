@@ -64,18 +64,3 @@ export const Tag = styled.span`
   margin-right: -17px;
   color: #170641;
 `;
-
-export const Button = styled.button`
-  background-color: #170641;
-  color: #fff;
-  text-align: center;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #230966;
-  }
-`;

@@ -4,6 +4,7 @@ import {
   CartContext,
   CartContextType,
 } from "../../../providers/cart-context-provider";
+import Button from "./../../Button/Button";
 import styles from "./CartItem.module.scss";
 
 function CartItem({ item }: { item: Cart }) {
@@ -27,11 +28,6 @@ function CartItem({ item }: { item: Cart }) {
     setQuantity(nextQuantity);
   };
 
-  // const changeQuantity = (quantity: number) => {
-  //   console.log("quantity", quantity);
-  //   // setQuantity(quantity);
-  // };
-
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartItem__imageContainer}>
@@ -41,16 +37,9 @@ function CartItem({ item }: { item: Cart }) {
         <h2>{item.title}</h2>
         <h3>Price: ${item.price}</h3>
         <div className={styles.cartItem__counter}>
-          <button onClick={remove}>-</button>
-          <input
-            className={styles.cartItem__input}
-            type="text"
-            value={quantity}
-            name="quantity"
-            readOnly={true}
-            // onChange={(e) => changeQuantity(+e.target.value)}
-          />
-          <button onClick={add}>+</button>
+          <Button handleClick={remove}>-</Button>
+          <span className={styles.cartItem__quantity}>{quantity}</span>
+          <Button handleClick={add}>+</Button>
         </div>
       </div>
     </div>

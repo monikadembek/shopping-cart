@@ -7,6 +7,7 @@ import {
 } from "../../providers/cart-context-provider";
 import styles from "./Cart.module.scss";
 import CartItem from "./CartItem/CartItem";
+import Button from "./../Button/Button";
 
 function ShoppingCart() {
   const navigate = useNavigate();
@@ -55,10 +56,8 @@ function ShoppingCart() {
       )}
 
       <footer className={styles.footer}>
-        <button className="btn" onClick={goToProducts}>
-          Continue shopping
-        </button>
-        {cart.length > 0 && <button className="btn">Checkout</button>}
+        <Button handleClick={goToProducts}>Continue shopping</Button>
+        {cart.length > 0 && <Button handleClick={() => {}}>Checkout</Button>}
       </footer>
     </div>
   );
