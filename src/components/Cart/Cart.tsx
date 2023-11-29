@@ -5,7 +5,7 @@ import {
   CartContext,
   CartContextType,
 } from "../../providers/cart-context-provider";
-import styles from "./Cart.module.scss";
+import { Container, Content, Footer } from "./Cart.style";
 import CartItem from "./CartItem/CartItem";
 import Button from "./../Button/Button";
 
@@ -37,17 +37,17 @@ function ShoppingCart() {
   console.log("cart", cart);
 
   return (
-    <div className={styles.container}>
+    <Container>
       <h2>Your cart items</h2>
       {cart.length === 0 && <p>Your cart is empty</p>}
 
       {cart.length > 0 && (
         <>
-          <div className={styles.content}>
+          <Content>
             {cart.map((item: Cart) => (
               <CartItem key={item.id} item={item} />
             ))}
-          </div>
+          </Content>
 
           <p>
             Total price: <strong>${totalPrice.toFixed(2)}</strong>
@@ -55,11 +55,11 @@ function ShoppingCart() {
         </>
       )}
 
-      <footer className={styles.footer}>
+      <Footer>
         <Button handleClick={goToProducts}>Continue shopping</Button>
         {cart.length > 0 && <Button handleClick={() => {}}>Checkout</Button>}
-      </footer>
-    </div>
+      </Footer>
+    </Container>
   );
 }
 

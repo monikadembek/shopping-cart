@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Navbar.module.scss";
+import { StyledNavbar, Badge } from "./Navbar.styles";
 import { ShoppingCart } from "react-feather";
 import {
   CartContext,
@@ -12,20 +12,18 @@ function Navbar() {
   const { cart } = cartContext as CartContextType;
 
   return (
-    <nav className={styles.navbar}>
+    <StyledNavbar>
       <Link to="/">
-        <h1 className={styles.navbar__logo}>SHOP</h1>
+        <h1 className="logo">SHOP</h1>
       </Link>
-      <div className={styles.navbar__links}>
+      <div className="links">
         <Link to="/products">Products</Link>
-        <Link to="/cart" className={styles.cartIcon}>
-          {cart?.length > 0 && (
-            <span className={styles.badge}>{cart.length}</span>
-          )}
+        <Link to="/cart" className="cartIcon">
+          {cart?.length > 0 && <Badge>{cart.length}</Badge>}
           <ShoppingCart />
         </Link>
       </div>
-    </nav>
+    </StyledNavbar>
   );
 }
 

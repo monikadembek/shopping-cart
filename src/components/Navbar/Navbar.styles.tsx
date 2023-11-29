@@ -1,4 +1,6 @@
-.navbar {
+import styled from "styled-components";
+
+export const StyledNavbar = styled.nav`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -17,24 +19,24 @@
     color: #e5f6ff;
   }
 
-  &__logo {
+  .logo {
     margin-right: auto;
   }
 
-  &__links {
+  .links {
     display: flex;
 
     a {
       margin: 10px;
     }
   }
-}
 
-.cartIcon {
-  position: relative;
-}
+  .cartIcon {
+    position: relative;
+  }
+`;
 
-.badge {
+export const Badge = styled.span`
   position: absolute;
   top: -14px;
   right: -14px;
@@ -48,4 +50,4 @@
   padding: 5px;
   font-size: 14px;
   font-weight: bold;
-}
+`;

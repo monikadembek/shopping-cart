@@ -1,4 +1,6 @@
-.cartItem {
+import styled from "styled-components";
+
+export const StyledCartItem = styled.div`
   width: 600px;
   height: 300px;
   display: flex;
@@ -10,7 +12,7 @@
   padding: 30px;
   margin: 30px auto;
 
-  &__imageContainer {
+  .imageContainer {
     width: 30%;
     padding-right: 40px;
 
@@ -20,17 +22,17 @@
     }
   }
 
-  &__content {
+  .content {
     width: 70%;
     text-align: left;
   }
 
-  &__counter {
+  .counter {
     margin-top: 30px;
     font-weight: bold;
   }
 
-  &__quantity {
+  .quantity {
     padding: 15px;
   }
-}
+`;

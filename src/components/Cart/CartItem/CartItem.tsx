@@ -5,7 +5,7 @@ import {
   CartContextType,
 } from "../../../providers/cart-context-provider";
 import Button from "./../../Button/Button";
-import styles from "./CartItem.module.scss";
+import { StyledCartItem } from "./CartItem.style";
 
 function CartItem({ item }: { item: Cart }) {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -29,20 +29,20 @@ function CartItem({ item }: { item: Cart }) {
   };
 
   return (
-    <div className={styles.cartItem}>
-      <div className={styles.cartItem__imageContainer}>
+    <StyledCartItem className="cartItem">
+      <div className="imageContainer">
         <img src={item.image} alt="product image" />
       </div>
-      <div className={styles.cartItem__content}>
+      <div className="content">
         <h2>{item.title}</h2>
         <h3>Price: ${item.price}</h3>
-        <div className={styles.cartItem__counter}>
+        <div className="counter">
           <Button handleClick={remove}>-</Button>
-          <span className={styles.cartItem__quantity}>{quantity}</span>
+          <span className="quantity">{quantity}</span>
           <Button handleClick={add}>+</Button>
         </div>
       </div>
-    </div>
+    </StyledCartItem>
   );
 }
 
