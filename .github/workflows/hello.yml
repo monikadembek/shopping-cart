@@ -1,0 +1,24 @@
+# <project_root>/.github/workflows/hello.yml
+
+name: Hello world!
+
+on:
+  workflow_dispatch:
+
+jobs:
+  app-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Greeting
+        run: echo "Brawo! Znakomita robota!" >> $GITHUB_STEP_SUMMARY
