@@ -21,10 +21,7 @@ function ProductDetails() {
     data: product,
     error,
     isLoading,
-  }: { data: Product; error: any; isLoading: boolean } = useSWR(
-    `https://fakestoreapi.com/products/${id}`,
-    fetcher,
-  );
+  } = useSWR(`https://fakestoreapi.com/products/${id}`, fetcher);
 
   console.log("product details: ", product);
 
@@ -39,16 +36,18 @@ function ProductDetails() {
   return (
     <StyledProduct>
       <header>
-        <h3>{product.title}</h3>
-        <Tag>{product.category}</Tag>
+        <h3>{(product as Product).title}</h3>
+        <Tag>{(product as Product).category}</Tag>
       </header>
       <div>
-        <img src={product.image} alt="product image" />
-        <div className="description">{product.description}</div>
+        <img src={(product as Product).image} alt="product image" />
+        <div className="description">{(product as Product).description}</div>
       </div>
       <footer className="footer">
-        <h4 className="price">${product.price}</h4>
-        <Button handleClick={() => addToCart(product)}>Add to cart</Button>
+        <h4 className="price">${(product as Product).price}</h4>
+        <Button handleClick={() => addToCart(product as Product)}>
+          Add to cart
+        </Button>
       </footer>
     </StyledProduct>
   );

@@ -10,11 +10,7 @@ import {
 } from "./Products.styles";
 
 function Products() {
-  const {
-    data,
-    error,
-    isLoading,
-  }: { data: Product[]; error: any; isLoading: boolean } = useSWR(
+  const { data, error, isLoading } = useSWR(
     "https://fakestoreapi.com/products",
     fetcher,
   );
@@ -33,7 +29,7 @@ function Products() {
     <Container>
       <h2 className="header">Products</h2>
       <ProductsContainer>
-        {data?.map((product: Product) => (
+        {(data as Product[])?.map((product: Product) => (
           <ProductTile key={product.id} product={product} />
         ))}
       </ProductsContainer>
