@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <StyledNavbar>
       <Link to="/">
-        <h1 className="logo">SHOP</h1>
+        <h1 className="logo">SHOPIFY :-)</h1>
       </Link>
       <div className="links">
         <Link to="/products">Products</Link>
