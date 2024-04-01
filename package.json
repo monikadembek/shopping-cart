@@ -9,6 +9,7 @@
     "test": "jest --watch",
     "test:all": "jest --watchAll",
     "test:coverage": "jest --watchAll=false --coverage",
+    "test:ci": "jest",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prettier-all": "prettier --write ."
