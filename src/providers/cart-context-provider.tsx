@@ -76,6 +76,7 @@ function CartContextProvider({ children }: PropsWithChildren) {
       addToCart,
       updateProductQuantity,
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
