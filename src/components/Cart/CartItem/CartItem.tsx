@@ -14,6 +14,7 @@ function CartItem({ item }: { item: Cart }) {
 
   useEffect(() => {
     updateProductQuantity(item.id, quantity);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
 
   console.log("cart item: ", item);
