@@ -32,7 +32,7 @@ function CartContextProvider({ children }: PropsWithChildren) {
   console.log("cart: ", cart);
 
   const addToCart = (product: Product): void => {
-    let nextCart: Cart[] = [...cart];
+    const nextCart: Cart[] = [...cart];
     const isProductInCart = nextCart.find(
       (item: Cart) => item.id === product.id,
     );
